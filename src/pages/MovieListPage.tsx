@@ -1,31 +1,45 @@
-import axios from 'axios'
+import { useNavigate } from "react-router-dom";
+import useSearchMovie from '~/resources/useSearchMovie'
+import { Movie } from '~/resources/useSearchMovie'
 import {
-  useQuery,
-  useQueryClient,
-} from 'react-query'
-
-async function searchMovies () {
-  const { data } = await axios.get('https://www.omdbapi.com/?apikey=945808ea&s=shrek')
-  return data
-}
+  MovieTitle,
+  StyledImg,
+  StyledListItem,
+  StyledMovieList,
+  StyledPage,
+  TextHeader,
+  TextLarge,
+  TextParagraph,
+} from './_MovieListPage'
 
 function MovieListPage () {
-  const queryClient = useQueryClient()
-  const query = useQuery('movieSearch', searchMovies)
+
+  const { movieList } = useSearchMovie('shrek')
+  const navigate = useNavigate()
+
+  const navigateToMovieDetail = (imdbID: Movie["imdbID"]) => {
+    return navigate(`/movie-detail/${imdbID}`)
+  }
 
   return (
-    <div data-testid="app--movie-list-page">
-      <h1 data-testid="movie-list-page--title">Movie List</h1>
+    <StyledPage data-testid="app--movie-list-page">
+      <TextHeader data-testid="movie-list-page--title">Movie List</TextHeader>
 
-      <ul data-testid="movie-list-page--movie-list">
-        <li>
-          <img data-testid="movie-list--image" src="/favicon.ico" />
-          <p data-testid="movie-list--name">Battleship</p>
-          <p data-testid="movie-list--type">Action</p>
-          <p data-testid="movie-list--year">2012</p>
-        </li>
-      </ul>
-    </div>
+      <StyledMovieList data-testid="movie-list-page--movie-list">
+        {movieList.map((movie: Movie) => {
+          const { Title, Poster, Type, Year, imdbID } = movie
+
+          return ( <StyledListItem key={imdbID} onClick={() => navigateToMovieDetail(imdbID)}>
+            <StyledImg data-testid="movie-list--image" src={Poster} />
+            <MovieTitle>
+              <TextLarge data-testid="movie-list--name">{Title}</TextLarge>
+              <TextParagraph data-testid="movie-list--year">({Year})</TextParagraph>
+            </MovieTitle>
+            <TextParagraph data-testid="movie-list--type">Type: {Type}</TextParagraph>
+          </StyledListItem>)
+        })}
+      </StyledMovieList>
+    </StyledPage>
   )
 }
 

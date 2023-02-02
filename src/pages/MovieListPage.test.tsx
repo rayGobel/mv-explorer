@@ -1,9 +1,22 @@
 import React from 'react';
+import { QueryClient, QueryClientProvider } from 'react-query';
 import { render, screen } from '@testing-library/react';
 import MovieListPage from './MovieListPage';
+import { BrowserRouter } from 'react-router-dom';
+
+const queryClient = new QueryClient()
+
+const testRenderer = () => {
+  render(
+    <QueryClientProvider client={queryClient}>
+      <MovieListPage />
+    </QueryClientProvider>,
+    {wrapper: BrowserRouter}
+  )
+}
 
 test('<MovieListPage /> shows page title', () => {
-  render(<MovieListPage />)
+  testRenderer()
 
   const pageTitle = screen.getByTestId('movie-list-page--title')
   expect(pageTitle).toBeInTheDocument()
@@ -11,24 +24,25 @@ test('<MovieListPage /> shows page title', () => {
 });
 
 test('<MovieListPage /> shows list of movies', () => {
-  render(<MovieListPage />)
+  testRenderer()
 
   const movieList = screen.getByTestId('movie-list-page--movie-list')
   expect(movieList).toBeInTheDocument()
 })
 
 test('Movies list should have movie name, type, year and image', () => {
-  render(<MovieListPage />)
+  testRenderer()
+  const { queryAllByTestId } = screen
 
-  const movieName = screen.queryAllByTestId('movie-list--name')
+  const movieName = queryAllByTestId('movie-list--name')
   expect(movieName[0]).toBeInTheDocument()
 
-  const movieType = screen.queryAllByTestId('movie-list--type')
+  const movieType = queryAllByTestId('movie-list--type')
   expect(movieType[0]).toBeInTheDocument()
 
-  const movieYear = screen.queryAllByTestId('movie-list--year')
+  const movieYear = queryAllByTestId('movie-list--year')
   expect(movieYear[0]).toBeInTheDocument()
 
-  const moviePosterImage = screen.queryAllByTestId('movie-list--image')
+  const moviePosterImage = queryAllByTestId('movie-list--image')
   expect(moviePosterImage[0]).toBeInTheDocument()
 })

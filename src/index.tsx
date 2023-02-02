@@ -20,7 +20,7 @@ function setupMSW() {
   return Promise.resolve()
 }
 
-const router = createBrowserRouter([
+export const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
