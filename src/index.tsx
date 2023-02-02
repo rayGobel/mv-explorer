@@ -11,6 +11,15 @@ import MovieDetailPage from '~/pages/MovieDetailPage';
 import MovieListPage from '~/pages/MovieListPage'
 import reportWebVitals from './reportWebVitals';
 
+function setupMSW() {
+  if (process.env.NODE_ENV === 'development') {
+    return import('~/mocks/browser')
+      .then(({ worker }) => worker.start())
+  }
+
+  return Promise.resolve()
+}
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -29,14 +38,17 @@ const router = createBrowserRouter([
   }
 ]);
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
-root.render(
-  <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>
-);
+setupMSW().then(() => {
+  const root = ReactDOM.createRoot(
+    document.getElementById('root') as HTMLElement
+  );
+
+  root.render(
+    <React.StrictMode>
+      <RouterProvider router={router} />
+    </React.StrictMode>
+  );
+})
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
