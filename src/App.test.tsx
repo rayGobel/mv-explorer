@@ -2,8 +2,15 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+test('Renders application title', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  const pageTitle = screen.getByTestId('app--page-title')
+  expect(pageTitle).toBeInTheDocument();
+  expect(pageTitle.textContent).toBe('MVS Browser')
+});
+
+test('Navigating first page should be <MovieListPage />', () => {
+  render(<App />);
+  const movieListPage = screen.getByTestId('app--movie-list-page')
+  expect(movieListPage).toBeInTheDocument()
 });
