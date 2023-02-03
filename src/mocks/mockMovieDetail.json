@@ -1,40 +1,40 @@
 {
-   "Actors" : "Alexander Skarsgård, Brooklyn Decker, Liam Neeson",
-   "Awards" : "4 wins & 16 nominations",
-   "BoxOffice" : "$65,422,625",
-   "Country" : "United States, Japan",
-   "DVD" : "28 Aug 2012",
-   "Director" : "Peter Berg",
-   "Genre" : "Action, Adventure, Sci-Fi",
-   "Language" : "English, Japanese",
-   "Metascore" : "41",
-   "Plot" : "A fleet of ships is forced to do battle with an armada of unknown origins in order to discover and thwart their destructive goals.",
-   "Poster" : "https://m.media-amazon.com/images/M/MV5BMjI5NTM5MDA2N15BMl5BanBnXkFtZTcwNjkwMzQxNw@@._V1_SX300.jpg",
-   "Production" : "N/A",
-   "Rated" : "PG-13",
-   "Ratings" : [
-      {
-         "Source" : "Internet Movie Database",
-         "Value" : "5.8/10"
-      },
-      {
-         "Source" : "Rotten Tomatoes",
-         "Value" : "33%"
-      },
-      {
-         "Source" : "Metacritic",
-         "Value" : "41/100"
-      }
-   ],
-   "Released" : "18 May 2012",
-   "Response" : "True",
-   "Runtime" : "131 min",
-   "Title" : "Battleship",
-   "Type" : "movie",
-   "Website" : "N/A",
-   "Writer" : "Jon Hoeber, Erich Hoeber",
-   "Year" : "2012",
-   "imdbID" : "tt1440129",
-   "imdbRating" : "5.8",
-   "imdbVotes" : "250,015"
+  "Actors": "Alexander Skarsgård, Brooklyn Decker, Liam Neeson",
+  "Awards": "4 wins & 16 nominations",
+  "BoxOffice": "$65,422,625",
+  "Country": "United States, Japan",
+  "DVD": "28 Aug 2012",
+  "Director": "Peter Berg",
+  "Genre": "Action, Adventure, Sci-Fi",
+  "Language": "English, Japanese",
+  "Metascore": "41",
+  "Plot": "A fleet of ships is forced to do battle with an armada of unknown origins in order to discover and thwart their destructive goals.",
+  "Poster": "https://m.media-amazon.com/images/M/MV5BMjI5NTM5MDA2N15BMl5BanBnXkFtZTcwNjkwMzQxNw@@._V1_SX300.jpg",
+  "Production": "N/A",
+  "Rated": "PG-13",
+  "Ratings": [
+    {
+      "Source": "Internet Movie Database",
+      "Value": "5.8/10"
+    },
+    {
+      "Source": "Rotten Tomatoes",
+      "Value": "33%"
+    },
+    {
+      "Source": "Metacritic",
+      "Value": "41/100"
+    }
+  ],
+  "Released": "18 May 2012",
+  "Response": "True",
+  "Runtime": "131 min",
+  "Title": "Battleship",
+  "Type": "movie",
+  "Website": "N/A",
+  "Writer": "Jon Hoeber, Erich Hoeber",
+  "Year": "2012",
+  "imdbID": "tt1440129",
+  "imdbRating": "5.8",
+  "imdbVotes": "250,015"
 }

@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import useSearchMovie from '~/resources/useSearchMovie'
-import { Movie } from '~/resources/useSearchMovie'
+import useSearchMovie from "~/resources/useSearchMovie";
+import { Movie } from "~/resources/useSearchMovie";
 import {
   MovieTitle,
   StyledImg,
@@ -10,16 +10,15 @@ import {
   TextHeader,
   TextLarge,
   TextParagraph,
-} from './_MovieListPage'
+} from "./_MovieListPage";
 
-function MovieListPage () {
-
-  const { movieList } = useSearchMovie('shrek')
-  const navigate = useNavigate()
+function MovieListPage() {
+  const { movieList } = useSearchMovie("shrek");
+  const navigate = useNavigate();
 
   const navigateToMovieDetail = (imdbID: Movie["imdbID"]) => {
-    return navigate(`/movie-detail/${imdbID}`)
-  }
+    return navigate(`/movie-detail/${imdbID}`);
+  };
 
   return (
     <StyledPage data-testid="app--movie-list-page">
@@ -27,20 +26,29 @@ function MovieListPage () {
 
       <StyledMovieList data-testid="movie-list-page--movie-list">
         {movieList.map((movie: Movie) => {
-          const { Title, Poster, Type, Year, imdbID } = movie
+          const { Title, Poster, Type, Year, imdbID } = movie;
 
-          return ( <StyledListItem key={imdbID} onClick={() => navigateToMovieDetail(imdbID)}>
-            <StyledImg data-testid="movie-list--image" src={Poster} />
-            <MovieTitle>
-              <TextLarge data-testid="movie-list--name">{Title}</TextLarge>
-              <TextParagraph data-testid="movie-list--year">({Year})</TextParagraph>
-            </MovieTitle>
-            <TextParagraph data-testid="movie-list--type">Type: {Type}</TextParagraph>
-          </StyledListItem>)
+          return (
+            <StyledListItem
+              key={imdbID}
+              onClick={() => navigateToMovieDetail(imdbID)}
+            >
+              <StyledImg data-testid="movie-list--image" src={Poster} />
+              <MovieTitle>
+                <TextLarge data-testid="movie-list--name">{Title}</TextLarge>
+                <TextParagraph data-testid="movie-list--year">
+                  ({Year})
+                </TextParagraph>
+              </MovieTitle>
+              <TextParagraph data-testid="movie-list--type">
+                Type: {Type}
+              </TextParagraph>
+            </StyledListItem>
+          );
         })}
       </StyledMovieList>
     </StyledPage>
-  )
+  );
 }
 
-export default MovieListPage
+export default MovieListPage;

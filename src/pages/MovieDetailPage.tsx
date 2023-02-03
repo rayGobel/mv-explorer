@@ -1,5 +1,5 @@
-import { useNavigate, useParams } from 'react-router-dom'
-import useGetMovieDetail from '~/resources/useGetMovieDetail'
+import { useNavigate, useParams } from "react-router-dom";
+import useGetMovieDetail from "~/resources/useGetMovieDetail";
 import {
   MovieTitle,
   StyledButton,
@@ -8,31 +8,23 @@ import {
   TextHeader,
   TextParagraph,
   TextSubtle,
-} from './_MovieDetailPage'
+} from "./_MovieDetailPage";
 
 function MovieDetailPage() {
-  const { movieId } = useParams()
-  const { movie, isFetching } = useGetMovieDetail(movieId)
-  const navigate = useNavigate()
+  const { movieId } = useParams();
+  const { movie, isFetching } = useGetMovieDetail(movieId);
+  const navigate = useNavigate();
 
   if (!movie && isFetching) {
-    return (<TextParagraph>Loading</TextParagraph>)
+    return <TextParagraph>Loading</TextParagraph>;
   }
 
   const navigateToMovieList = () => {
-    return navigate('/')
-  }
+    return navigate("/");
+  };
 
-  const {
-    Actors,
-    Director,
-    Genre,
-    Plot,
-    Released,
-    Runtime,
-    Title,
-    Year,
-  } = movie
+  const { Actors, Director, Genre, Plot, Released, Runtime, Title, Year } =
+    movie;
 
   return (
     <StyledPage>
@@ -57,15 +49,11 @@ function MovieDetailPage() {
       </div>
 
       <StyledButtonGroup>
-        <StyledButton>
-          Save to favorites
-        </StyledButton>
-        <StyledButton onClick={navigateToMovieList}>
-          Back
-        </StyledButton>
+        <StyledButton>Save to favorites</StyledButton>
+        <StyledButton onClick={navigateToMovieList}>Back</StyledButton>
       </StyledButtonGroup>
     </StyledPage>
-  )
+  );
 }
 
-export default MovieDetailPage
+export default MovieDetailPage;

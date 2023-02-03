@@ -1,10 +1,10 @@
-import React from 'react';
-import type { ReactNode } from 'react';
+import React from "react";
+import type { ReactNode } from "react";
 import { Outlet } from "react-router-dom";
-import { QueryClient, QueryClientProvider } from 'react-query';
-import { AppContainer } from './_App';
+import { QueryClient, QueryClientProvider } from "react-query";
+import { AppContainer } from "./_App";
 
-const queryClient = new QueryClient()
+const queryClient = new QueryClient();
 
 function App() {
   return (
@@ -16,10 +16,8 @@ function App() {
 
 function QueryProvider(children: ReactNode) {
   return (
-    <QueryClientProvider client={queryClient}>
-      {children}
-    </QueryClientProvider>
-  )
+    <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+  );
 }
 
-export default () => QueryProvider(<App />)
+export default () => QueryProvider(<App />);

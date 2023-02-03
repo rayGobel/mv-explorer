@@ -22,7 +22,7 @@ const config = {
   resetMocks: true,
   moduleNameMapper: {
     ".+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$":
-    "identity-obj-proxy",
+      "identity-obj-proxy",
     "\\.svg$": "<rootDir>/__mocks__/svg.js",
     "~(.*)$": "<rootDir>/src/$1",
   },
