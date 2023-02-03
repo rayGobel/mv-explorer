@@ -1,5 +1,6 @@
 import { useNavigate, useParams } from "react-router-dom";
 import useGetMovieDetail from "~/resources/useGetMovieDetail";
+import useMovieFavoriteStore from "~/resources/useMovieFavoriteStore";
 import {
   MovieTitle,
   StyledButton,
@@ -13,11 +14,29 @@ import {
 function MovieDetailPage() {
   const { movieId } = useParams();
   const { movie, isFetching } = useGetMovieDetail(movieId);
+  const {
+    movieInFavorites,
+    addToFavorite,
+    removeFromFavorite,
+    favoriteMovies,
+  } = useMovieFavoriteStore();
   const navigate = useNavigate();
 
   if (!movie && isFetching) {
     return <TextParagraph>Loading</TextParagraph>;
   }
+
+  const favoriteBtnText = movieInFavorites(movie)
+    ? "Remove from favorite"
+    : "Add to favorite";
+
+  const switchMovieFromFavorite = () => {
+    if (movieInFavorites(movie)) {
+      removeFromFavorite(movie);
+    } else {
+      addToFavorite(movie);
+    }
+  };
 
   const navigateToMovieList = () => {
     return navigate("/");
@@ -49,7 +68,9 @@ function MovieDetailPage() {
       </div>
 
       <StyledButtonGroup>
-        <StyledButton>Save to favorites</StyledButton>
+        <StyledButton onClick={switchMovieFromFavorite}>
+          {favoriteBtnText}
+        </StyledButton>
         <StyledButton onClick={navigateToMovieList}>Back</StyledButton>
       </StyledButtonGroup>
     </StyledPage>
