@@ -6,6 +6,7 @@ import App from "./App";
 import ErrorPage from "~/pages/ErrorPage";
 import MovieDetailPage from "~/pages/MovieDetailPage";
 import MovieListPage from "~/pages/MovieListPage";
+import MovieFavoritePage from "~/pages/MovieFavoritePage";
 import reportWebVitals from "./reportWebVitals";
 
 function setupMSW() {
@@ -29,6 +30,10 @@ export const router = createBrowserRouter([
       {
         path: "/movie-detail/:movieId",
         element: <MovieDetailPage />,
+      },
+      {
+        path: "/favorite-movies",
+        element: <MovieFavoritePage />,
       },
     ],
   },

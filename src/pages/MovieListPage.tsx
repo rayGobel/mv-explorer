@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import useSearchMovie from "~/resources/useSearchMovie";
 import { Movie } from "~/resources/Movie";
 import {
@@ -23,6 +23,9 @@ function MovieListPage() {
   return (
     <StyledPage data-testid="app--movie-list-page">
       <TextHeader data-testid="movie-list-page--title">Movie List</TextHeader>
+      <Link to="/favorite-movies">
+        <TextHeader>Favorite's</TextHeader>
+      </Link>
 
       <StyledMovieList data-testid="movie-list-page--movie-list">
         {movieList.map((movie: Movie) => {
