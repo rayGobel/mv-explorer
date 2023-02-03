@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import useSearchMovie from "~/resources/useSearchMovie";
-import { Movie } from "~/resources/useSearchMovie";
+import { Movie } from "~/resources/Movie";
 import {
   MovieTitle,
   StyledImg,

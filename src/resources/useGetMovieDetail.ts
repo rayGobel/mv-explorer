@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useQuery, useQueryClient } from "react-query";
 import qs from "qs";
-import type { imdbID } from "./useSearchMovie";
+import type { imdbID } from "./Movie";
 
 const API_TOKEN = process.env.REACT_APP_CLIENT_TOKEN;
 const BASE_URL = `https://www.omdbapi.com/`;

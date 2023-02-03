@@ -1,21 +1,10 @@
 import axios from "axios";
 import { useQuery, useQueryClient } from "react-query";
 import qs from "qs";
+import type { Movie } from "./Movie";
 
 const API_TOKEN = process.env.REACT_APP_CLIENT_TOKEN;
 const BASE_URL = `https://www.omdbapi.com/`;
-
-type ID = string;
-type URLString = string;
-export type imdbID = ID;
-
-export interface Movie {
-  imdbID: ID;
-  Title: string;
-  Poster: URLString;
-  Type: string;
-  Year: number;
-}
 
 export interface SearchOptions {
   page?: number;

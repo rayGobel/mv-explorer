@@ -15,7 +15,8 @@ export const StyledMovieList = styled.ul`
   align-items: center;
 
   ${mediaQueries.TABLET} {
-    flex-direction: row;
+    flex-flow: row wrap;
+    margin: 32px 20px;
   }
 `;
 
@@ -27,6 +28,10 @@ export const StyledListItem = styled.li`
   flex-direction: column;
   gap: 8px;
   padding: 12px;
+
+  ${mediaQueries.TABLET} {
+    max-width: 45%;
+  }
 `;
 
 export const StyledImg = styled.img`
