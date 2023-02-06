@@ -20,6 +20,23 @@ export const StyledMovieList = styled.ul`
   }
 `;
 
+export const StyledSearchBar = styled.div`
+  display: flex;
+  padding: 1rem 0;
+
+  & > button {
+    flex: 1 0 auto;
+  }
+
+  & > input {
+    flex: 3 0 auto;
+  }
+
+  ${mediaQueries.TABLET} {
+    max-width: 50%;
+  }
+`;
+
 export const MovieTitle = styled.div`
   display: flex;
   flex-direction: row;
@@ -27,12 +44,18 @@ export const MovieTitle = styled.div`
   gap: 4px;
 `;
 
+/**
+ * @deprecated @rayGobel
+ */
 export const TextLarge = styled.p`
   font-size: 24px;
   font-weight: 700;
   margin: 0;
 `;
 
+/**
+ * @deprecated @rayGobel
+ */
 export const TextParagraph = styled.p`
   font-size: 14px;
   color: #111;
