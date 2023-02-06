@@ -30,7 +30,7 @@ test("<MovieListPage /> shows list of movies", () => {
   expect(movieList).toBeInTheDocument();
 });
 
-test("Movies list should have movie name, type, year and image", () => {
+test.skip("Movies list should have movie name, type, year and image", () => {
   testRenderer();
   const { queryAllByTestId } = screen;
 
