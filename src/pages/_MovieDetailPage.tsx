@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-
 export { MovieTitle, TextHeader, TextParagraph } from "~/pages/_MovieListPage";
 
 export const StyledPage = styled.div`
@@ -20,6 +19,7 @@ export const TextSubtle = styled.p`
   margin: 0;
   padding: 0;
 `;
+
 export const StyledButton = styled.button`
   padding: 8px 12px;
   margin: 0;

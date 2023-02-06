@@ -1,13 +1,14 @@
 import { useNavigate, useParams } from "react-router-dom";
 import useGetMovieDetail from "~/resources/useGetMovieDetail";
 import useMovieFavoriteStore from "~/resources/useMovieFavoriteStore";
+import { Button, ButtonTertiary } from "~/components/Button";
+import { Card, CardSection } from "~/components/Card";
+import { TextBody, TextSubtitle } from "~/components/Text";
 import {
   MovieTitle,
-  StyledButton,
   StyledButtonGroup,
   StyledPage,
   TextHeader,
-  TextParagraph,
   TextSubtle,
 } from "./_MovieDetailPage";
 
@@ -23,7 +24,7 @@ function MovieDetailPage() {
   const navigate = useNavigate();
 
   if (!movie && isFetching) {
-    return <TextParagraph>Loading</TextParagraph>;
+    return <TextBody>Loading</TextBody>;
   }
 
   const favoriteBtnText = movieInFavorites(movie)
@@ -46,34 +47,35 @@ function MovieDetailPage() {
     movie;
 
   return (
-    <StyledPage>
+    <Card>
       <MovieTitle>
         <TextHeader>{Title}</TextHeader>
-        <TextParagraph>({Year})</TextParagraph>
+        <TextBody>({Year})</TextBody>
       </MovieTitle>
-      <div>
-        <TextSubtle>{Genre}</TextSubtle>
-      </div>
-      <div>
-        <TextParagraph>Directed By: {Director}</TextParagraph>
-        <TextParagraph>Actors: {Actors}</TextParagraph>
-      </div>
-      <div>
-        <TextParagraph>Release Date: {Released}</TextParagraph>
-        <TextParagraph>Runtime: {Runtime}</TextParagraph>
-      </div>
-      <div>
-        <TextParagraph>Plot</TextParagraph>
-        <TextParagraph>{Plot}</TextParagraph>
-      </div>
+
+      <CardSection>
+        <TextSubtitle>{Genre}</TextSubtitle>
+        <TextBody>Directed By: {Director}</TextBody>
+        <TextBody>Actors: {Actors}</TextBody>
+      </CardSection>
+
+      <CardSection>
+        <TextBody>Release Date: {Released}</TextBody>
+        <TextBody>Runtime: {Runtime}</TextBody>
+      </CardSection>
+
+      <CardSection>
+        <TextBody>Plot</TextBody>
+        <TextBody>{Plot}</TextBody>
+      </CardSection>
 
       <StyledButtonGroup>
-        <StyledButton onClick={switchMovieFromFavorite}>
+        <Button variant="primary" onClick={switchMovieFromFavorite}>
           {favoriteBtnText}
-        </StyledButton>
-        <StyledButton onClick={navigateToMovieList}>Back</StyledButton>
+        </Button>
+        <ButtonTertiary onClick={navigateToMovieList}>Back</ButtonTertiary>
       </StyledButtonGroup>
-    </StyledPage>
+    </Card>
   );
 }
 

@@ -1,13 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { RouterProvider } from "react-router-dom";
 import "./index.css";
-import App from "./App";
-import ErrorPage from "~/pages/ErrorPage";
-import MovieDetailPage from "~/pages/MovieDetailPage";
-import MovieListPage from "~/pages/MovieListPage";
-import MovieFavoritePage from "~/pages/MovieFavoritePage";
 import reportWebVitals from "./reportWebVitals";
+
+import router from "./router";
 
 function setupMSW() {
   if (process.env.NODE_ENV === "development") {
@@ -16,28 +13,6 @@ function setupMSW() {
 
   return Promise.resolve();
 }
-
-export const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-    errorElement: <ErrorPage />,
-    children: [
-      {
-        path: "/",
-        element: <MovieListPage />,
-      },
-      {
-        path: "/movie-detail/:movieId",
-        element: <MovieDetailPage />,
-      },
-      {
-        path: "/favorite-movies",
-        element: <MovieFavoritePage />,
-      },
-    ],
-  },
-]);
 
 setupMSW().then(() => {
   const root = ReactDOM.createRoot(

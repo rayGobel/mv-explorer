@@ -18,7 +18,19 @@ export const AppContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0;
+  padding: 1rem;
   margin: 0;
-  width: 100%;
+  max-width: 100%;
+`;
+
+export const StyledNav = styled.nav`
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+  padding: 0.5rem 1rem;
+  align-self: start;
+
+  * {
+    flex: 1 0 auto;
+  }
 `;

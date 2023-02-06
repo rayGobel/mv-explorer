@@ -2,43 +2,22 @@ import styled from "@emotion/styled";
 import { mediaQueries } from "~/_App";
 
 export const StyledPage = styled.div`
-  padding: 8px 32px;
+  width: 100%;
 `;
 
 export const StyledMovieList = styled.ul`
   display: flex;
-  flex-direction: column;
+  flex-flow: column nowrap;
   list-style: none;
   list-style-position: outside;
   padding: 0px;
-  gap: 12px;
-  align-items: center;
+  margin: 0px;
+  gap: 1rem;
+  justify-content: center;
 
   ${mediaQueries.TABLET} {
     flex-flow: row wrap;
-    margin: 32px 20px;
   }
-`;
-
-export const StyledListItem = styled.li`
-  border: 2px solid #bbb;
-  padding: 12px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  padding: 12px;
-
-  ${mediaQueries.TABLET} {
-    max-width: 45%;
-  }
-`;
-
-export const StyledImg = styled.img`
-  border-radius: 12px;
-  min-width: 300px;
-  height: auto;
-  object-fit: cover;
 `;
 
 export const MovieTitle = styled.div`
