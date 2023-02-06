@@ -29,20 +29,3 @@ test("<MovieListPage /> shows list of movies", () => {
   const movieList = screen.getByTestId("movie-list-page--movie-list");
   expect(movieList).toBeInTheDocument();
 });
-
-test.skip("Movies list should have movie name, type, year and image", () => {
-  testRenderer();
-  const { queryAllByTestId } = screen;
-
-  const movieName = queryAllByTestId("movie-list--name");
-  expect(movieName[0]).toBeInTheDocument();
-
-  const movieType = queryAllByTestId("movie-list--type");
-  expect(movieType[0]).toBeInTheDocument();
-
-  const movieYear = queryAllByTestId("movie-list--year");
-  expect(movieYear[0]).toBeInTheDocument();
-
-  const moviePosterImage = queryAllByTestId("movie-list--image");
-  expect(moviePosterImage[0]).toBeInTheDocument();
-});
